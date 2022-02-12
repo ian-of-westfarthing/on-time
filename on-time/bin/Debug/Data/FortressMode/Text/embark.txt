@@ -1,0 +1,8 @@
+After a long journey into the lands of {0}, you {1} and your people have arrived.
+Today, a new claw on the talon of {2} history.
+
+Sow the fields.
+Stock the fortress.
+Strike the earth!
+
+

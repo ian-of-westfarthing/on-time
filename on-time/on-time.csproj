@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{0AFEFC1A-6FF5-4F51-962D-79A790296D06}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ontime</RootNamespace>
+    <AssemblyName>on-time</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Graphics.cs" />
+    <Compile Include="Game\Data.cs" />
+    <Compile Include="Game\AdventureMode.cs" />
+    <Compile Include="TBML\RunMenu.cs" />
+    <Compile Include="Menus\PlayGame.cs" />
+    <Compile Include="Game\Shared.cs">
+      <LogicalName>--------------</LogicalName>
+    </Compile>
+    <Compile Include="Menus\NewRegion.cs" />
+    <Compile Include="Game\Gen.cs" />
+    <Compile Include="Game\Region\Site.cs" />
+    <Compile Include="Game\Region\SiteBiomeData.cs" />
+    <Compile Include="Game\Region\SiteMapData.cs" />
+    <Compile Include="Game\Region\RegionData.cs" />
+    <Compile Include="Game\Site\Block.cs" />
+    <Compile Include="Game\Site\Map.cs" />
+    <Compile Include="Game\FortressMode.cs" />
+    <Compile Include="Game\etc\Player.cs" />
+    <Compile Include="Game\FastNoiseLite.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Game\" />
+    <Folder Include="TBML\" />
+    <Folder Include="Menus\" />
+    <Folder Include="Game\Region\" />
+    <Folder Include="Game\Site\" />
+    <Folder Include="Game\etc\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,6 @@
+/home/ian/Projects/on-time/on-time/bin/Debug/on-time.exe
+/home/ian/Projects/on-time/on-time/bin/Debug/on-time.pdb
+/home/ian/Projects/on-time/on-time/obj/x86/Debug/on-time.csprojAssemblyReference.cache
+/home/ian/Projects/on-time/on-time/obj/x86/Debug/on-time.csproj.CoreCompileInputs.cache
+/home/ian/Projects/on-time/on-time/obj/x86/Debug/on-time.exe
+/home/ian/Projects/on-time/on-time/obj/x86/Debug/on-time.pdb

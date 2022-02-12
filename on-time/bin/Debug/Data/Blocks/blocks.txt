@@ -1,0 +1,4 @@
+air:.:9:0:air:100:no
+grass:":10:0:grass:100:yes
+stone:#:7:0:stone:100:yes
+dirt:#:14:0:dirt:100:yes

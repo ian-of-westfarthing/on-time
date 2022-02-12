@@ -1,0 +1,18 @@
+<!>--- Main menu designed in tbml ---<
+<!>copyright SaberStorm 2022<
+
+
+<menu>main-menu<
+
+<style>centered:x<
+<style>start:y:5<
+
+<txs>35:1:12:0:--on-time--<
+
+<tx>(P)lay Game<
+<tx>(Q)uit Game<
+<break><<break><<break><
+
+<ms><
+
+<txs>2:22:15:0:copyright SaberStorm 2022<

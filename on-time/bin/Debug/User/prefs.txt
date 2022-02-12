@@ -1,0 +1,5 @@
+# user preferences...
+
+
+# border color, 0-15
+bc 7
