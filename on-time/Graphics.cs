@@ -48,6 +48,8 @@ namespace ontime
         //  in-game ctrl+R.
         public static void Reset()
         {
+            Console.Clear();
+            
             for (int x = 0; x < 79; x++)
             {
                 for (int y = 0; y < 24; y++)
