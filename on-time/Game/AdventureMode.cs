@@ -32,7 +32,7 @@ namespace ontime.Game
         /// </summary>
         public static void Update()
         {
-            if(Shared.BlockData[Shared.CurrentSite_Map.Blocks[Player.Z, Player.X, Player.Y].ID].gen == GenType.air)
+            if(Player.Z > 0 && Shared.BlockData[Shared.CurrentSite_Map.Blocks[Player.Z - 1, Player.X, Player.Y].ID].gen == GenType.air)
             {
                 Player.Z--;
             }
