@@ -5,11 +5,11 @@ namespace ontime
 {
     class MainClass
     {
-        public static string version = "v0.1.0-alpha_1";
-        public static ConsoleColor BorderColor = ConsoleColor.Gray;
+        public static string version = "v0.1.0-alpha_1";            // this will be the version hen released
+        public static ConsoleColor BorderColor = ConsoleColor.Gray; // still yet unused
 
 
-        // Main()
+        // entry point
         public static void Main(string[] args)
         {
             // lol :D
@@ -39,6 +39,7 @@ namespace ontime
             Console.WriteLine("----Seeding RNG.");
             Game.Gen.Seed();
 
+            // Optimised Double Buffered Graphics Rendering System
             Console.WriteLine("initializing ODBGRS");
 
             Console.CursorVisible = false;
@@ -52,6 +53,8 @@ namespace ontime
             Console.CursorVisible = true;
         }
 
+        
+        // Used to read a key then trash the other keys
         public static ConsoleKeyInfo ReadKey()
         {
             var k = Console.ReadKey(true);
@@ -64,6 +67,8 @@ namespace ontime
             return k;
         }
 
+        
+        // Used for 'running' prefs.txt
         public static void Cmd(string cmd)
         {
             string[] split = cmd.Split();
