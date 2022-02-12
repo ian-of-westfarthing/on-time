@@ -5,12 +5,19 @@ namespace ontime.TBML
 {
     public static class RunMenu
     {
+        
+        
+        // 'TBML' runs simular to html, with a char[] (from file)
         public static void Run(char[] tbml)
         {
+            // the current menu
             string menu = "";
+            
+            // center text on the x/y coordinates
             bool center_x = false;
             bool center_y = false;
 
+            // where to put the text
             int start_y = 0;
             int start_x = 0;
 
@@ -26,15 +33,22 @@ namespace ontime.TBML
             // process file
             for(int i = 0; i < tbml.Length; i++)
             {
+                
+                // Find a tag
                 if(tbml[i] == '|')
                 {
+                    // <tx>text!<
                     string tag = "";
                     string contents = "";
 
+                    
+                    // Extract the type and contents of the tag
                     for (int j = i + 1; j < tbml.Length; j++)
                     {
                         if (tbml[j] == '|')
                         {
+                            
+                            // The contents
                             for (int a = j + 1; a < tbml.Length; a++)
                             {
                                 if(tbml[a] == '|')
@@ -55,22 +69,31 @@ namespace ontime.TBML
                         }
                     }
 
+                    
+                    
+                    // Process the tag
+                    
+                    // text
                     if(tag == "tx")
                     {
                         text.Add("x" + contents);
                     }
+                    // specially formatted text
                     else if(tag == "txs")
                     {
                         text.Add("!" + contents);
                     }
+                    // I literally can't remember what this stands for
                     else if(tag == "ms")
                     {
                         text.Add("1" + contents);
                     }
+                    // Set the menu to use
                     else if(tag == "menu")
                     {
                         menu = contents;
                     }
+                    // Style tags
                     else if(tag == "style")
                     {
                         string[] split = contents.Split(':');
@@ -128,14 +151,17 @@ namespace ontime.TBML
                             Environment.Exit(-1);
                         }
                     }
+                    // Break / new lines
                     else if(tag == "break")
                     {
                         text.Add("2" + contents);
                     }
+                    // comments!
                     else if(tag == "!")
                     {
 
                     }
+                    // Unknown tag
                     else
                     {
                         Graphics.Reset();
@@ -155,6 +181,7 @@ namespace ontime.TBML
 
             Graphics.ClearScreen();
 
+            // Render stuff
             foreach (string s in text)
             {
                 string r = "";
@@ -211,6 +238,10 @@ namespace ontime.TBML
 
             Graphics.Display();
 
+            
+            
+            //----------- menus / pause / etc.
+            
             // input loop
             bool Run = true;
 
