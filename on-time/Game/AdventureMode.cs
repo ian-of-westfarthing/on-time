@@ -53,6 +53,7 @@ namespace ontime.Game
             // Rendering positions
             int RX = 0;
             int RY = 0;
+            
 
             // Rendering the screen
             for (int x = Player.X - 39; x < Player.X + 40; x++)
@@ -61,7 +62,14 @@ namespace ontime.Game
                 {
                     if (x >= 0 && x < Shared.CurrentSite_Map.Width && y >= 0 && y < Shared.CurrentSite_Map.Height)
                     {
-                        Graphics.WriteAt(Shared.BlockData[Shared.CurrentSite_Map.Blocks[Player.Z, x, y].ID].texture, RX, RY, Shared.BlockData[Shared.CurrentSite_Map.Blocks[Player.Z, x, y].ID].fg, Shared.BlockData[Shared.CurrentSite_Map.Blocks[Player.Z, x, y].ID].bg);
+                        if(Shared.BlockData[Shared.CurrentSite_Map.Blocks[Player.Z, x, y].ID].gen != GenType.air)
+                        {
+                            Graphics.WriteAt(Shared.BlockData[Shared.CurrentSite_Map.Blocks[Player.Z, x, y].ID].texture, RX, RY, Shared.BlockData[Shared.CurrentSite_Map.Blocks[Player.Z, x, y].ID].fg, Shared.BlockData[Shared.CurrentSite_Map.Blocks[Player.Z, x, y].ID].bg);   
+                        }
+                        else if(Player.Z > 0)
+                        {
+                            Graphics.WriteAt(Shared.BlockData[Shared.CurrentSite_Map.Blocks[Player.Z - 1, x, y].ID].texture, RX, RY, Shared.BlockData[Shared.CurrentSite_Map.Blocks[Player.Z - 1, x, y].ID].fg, Shared.BlockData[Shared.CurrentSite_Map.Blocks[Player.Z - 1, x, y].ID].bg);
+                        }
                     }
 
                     RY++;
