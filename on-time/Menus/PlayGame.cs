@@ -20,10 +20,10 @@ namespace ontime.Menus
             Graphics.Reset();
             bool Run = true;
 
-            // Get a list of menus.
+            // Get a list of regions
             string[] Raw_Regions = 
                                     Directory.GetDirectories("Save/");
-            // Then process it.
+            // Extract all the data from them
             RegionData[] Regions = 
                                     new RegionData[Raw_Regions.Length];
 
@@ -50,6 +50,7 @@ namespace ontime.Menus
                 // If there are > 0 regions add an option to play.
                 if (Regions.Length > 0)
                 {
+                    // this option lets you start playing, or continue where you left off.
                     Graphics.WriteLine("P]lay or Start playing a region.", 30, 10);
                 }
 
@@ -63,24 +64,32 @@ namespace ontime.Menus
                 switch (Console.ReadKey(true).Key)
                 {
                     case ConsoleKey.P:
+                        // make sure there are regions
                         if (Regions.Length > 0)
                         {
+                            // the selector
                             int sel = 0;
                             bool play = true;
-
+                            
+                            // this is the start/play menu
                             while (Run)
                             {
+                                // cls
                                 Graphics.ClearScreen();
-
+                                
+                                // instructions
                                 Graphics.WriteLine("Press enter to START/PLAY, Up/Down Arrow to move cursor. Press ESCAPE to exit", 1, 1, ConsoleColor.Green);
-
+                                
+                                // display options
                                 for(int a = 0; a < Regions.Length; a++)
                                 {
                                     Graphics.WriteLine((sel == a ? "--------------------------------------->" : "") + (Regions[a].Started ? "[STARTED] " : "[START?] ") + Regions[a].Name + " : region" + Regions[a].Region, 1, a + 3);
                                 }
-
+                                
+                                // ODBGRS
                                 Graphics.Display();
-
+                                
+                                // input
                                 switch (MainClass.ReadKey().Key)
                                 {
                                     case ConsoleKey.UpArrow:
@@ -100,9 +109,13 @@ namespace ontime.Menus
                                         break;
                                 }
                             }
-
+                            
+                            
+                            // enter instead of escape
                             if (play)
                             {
+                                
+                                // START
                                 if (Regions[sel].Started)
                                 {
                                     Shared.CurrentRegion = Regions[sel];
@@ -113,6 +126,7 @@ namespace ontime.Menus
                                     else
                                         AdventureMode.Run();
                                 }
+                                // or PLAY
                                 else
                                 {
                                     Shared.CurrentRegion = Regions[sel];
@@ -123,9 +137,11 @@ namespace ontime.Menus
                         }
                         break;
                     case ConsoleKey.C:
+                        // New region creation menu.
                         NewRegion.Run();
                         break;
                     case ConsoleKey.Q:
+                        // Quit
                         Graphics.Reset();
                         Run = false;
                         break;
